@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" type="text/css" />
+
+    <title>Registration</title>
+</head>
+
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">HomePage</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+    <h2>HELLO WORLD</h2>
+
+    <p>
+        Welcome <span sec:authentication="principal.username">User</span>
+
+        This is the home page
+        
+
+    </p>
+    <p>
+        Cras porttitor sit amet leo efficitur posuere. Nullam sit amet felis ac sapien luctus convallis. Vivamus vel nunc euismod, facilisis ligula ut, blandit dolor. Etiam ac congue ligula. Maecenas fringilla nulla vel diam dapibus, et rhoncus tortor mattis. Cras tristique justo est, quis consequat odio maximus at. Vivamus a ante quis arcu finibus pretium a eget leo. In varius eu orci id cursus. Vivamus blandit sodales felis, eget placerat est aliquam vel. Sed dapibus eleifend libero, ut elementum est pulvinar ac. Nam ut laoreet diam.
+
+        Nunc quis scelerisque erat, in pellentesque felis. Etiam viverra, lorem eu scelerisque interdum, dui sem malesuada nunc, vitae venenatis massa est eget neque. Nam egestas congue mauris, sodales dignissim nibh congue eu. Aliquam mattis malesuada ex, vel hendrerit ex imperdiet sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque et mollis est. Sed vitae mi eu odio ullamcorper tristique. Curabitur vel odio at arcu fermentum volutpat. Phasellus finibus dolor faucibus, consectetur sapien nec, scelerisque lorem. Praesent pellentesque interdum erat vitae consequat. Donec sed sodales est. Vivamus eu vulputate dui.
+
+        Curabitur consequat velit vel egestas sagittis. Maecenas condimentum urna quis rutrum rutrum. Phasellus vel rutrum augue, et auctor ligula. Nunc eros nulla, cursus quis est nec, vehicula mattis est. Phasellus massa nulla, condimentum vulputate vulputate quis, aliquet nec odio. Nulla consectetur ultrices blandit. Praesent facilisis tincidunt vulputate. Sed rhoncus mauris ut arcu molestie rhoncus. Aliquam id mi eu mauris laoreet lobortis. Integer sodales in lacus eu vulputate. Curabitur tempor felis et tristique fermentum. Quisque elementum ex justo, sit amet sollicitudin dolor sagittis a. Sed auctor eros nec semper fermentum. In ac eleifend urna, in egestas sapien. Aenean dapibus sapien metus, eget congue leo eleifend vitae. Fusce pulvinar pharetra auctor.</p>
+</div>
+
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}" type="text/javascript"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}" type="text/javascript"></script>
+
+//<script>alert("Hello Thereeee");</script>
+<button onclick="showRandomAlert()">click</button>
+
+<script>
+    // Array of random alert messages
+    const alertMessages = [
+        "sky is blue!",
+        "You just won a prize!",
+        "This is a friendly reminder.",
+        "Something important just happened.",
+        "Surprise! Here's a random message."
+    ];
+
+    // Function to show a random alert message
+    function showRandomAlert() {
+        const randomIndex = Math.floor(Math.random() * alertMessages.length);
+        const randomMessage = alertMessages[randomIndex];
+        alert(randomMessage);
+    }
+</script>
+
+<div id="randomLorem"></div>
+
+<script>
+    // Array of Lorem Ipsum text segments
+    const loremIpsum = [
+        "Hello, the sky is beautiful.",
+        "You are the best",
+        "Do great things in your life",
+        "happy to have you here",
+        "WELCOMEEE TO THIS PAGE"
+    ];
+
+    // Function to get a random Lorem Ipsum segment
+    function getRandomLorem() {
+        const randomIndex = Math.floor(Math.random() * loremIpsum.length);
+        return loremIpsum[randomIndex];
+    }
+
+    // Display random Lorem Ipsum text when the page loads
+    window.onload = function() {
+        const randomLoremDiv = document.getElementById('randomLorem');
+        randomLoremDiv.innerHTML = getRandomLorem();
+    };
+</script>
+</body>
+
+</html>
